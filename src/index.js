@@ -104,6 +104,7 @@ const sort = (arr) => {
   return next;
 };
 
+let count = 0;
 const addListToPages = (pages) => {
   const sorted = sort(pages);
   pages = sorted;
@@ -138,9 +139,10 @@ const addListToPages = (pages) => {
   button.setAttribute('class', 'clear');
   button.setAttribute('type', 'button');
   button.innerHTML = 'Clear all Completed';
+  count += 1;
 };
 
-if (to_Do_List.Lists.length === 0) addListToPages(to_Do_List.Lists);
+if (count === 0) addListToPages(to_Do_List.Lists);
 
 function populate() {
   const instances = {
