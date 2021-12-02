@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.direction {
+  flex-direction: column;
+}
+
+.arrange {
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+img {
+  width: 2%;
+}
+
+.top {
+  width: 40%;
+  background-color: white;
+}
+
+.listing {
+  justify-content: space-between;
+  padding: 3%;
+  border-bottom: 1px solid grey;
+}
+
+#addlist {
+  padding: 3%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-right: white;
+  border-left: white;
+  background-image: url(./noun_Enter_115477.png);
+  background-size: 10% 85%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.head {
+  padding: 3%;
+  justify-content: space-between;
+}
+
+span {
+  white-space: nowrap;
+  align-items: start;
+  width: 50%;
+}
+
+.head img {
+  width: 6%;
+}
+
+.listing span {
+  margin-right: 25%;
+}
+
+.clear {
+  padding: 3%;
+  border: white;
+}
