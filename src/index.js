@@ -6,6 +6,7 @@ import _ from 'lodash';
 import './style.css';
 import Icons from './noun_more_712689.png';
 import Icons2 from './Refresh_icon.svg.png';
+import isCompleted from './complete.js';
 
 class Actions {
   constructor(des, com, nums) {
@@ -42,6 +43,25 @@ class List {
     this.Lists.splice(index, 1);
   }
 
+  returnDes(des) {
+    let ans = {};
+    for (let x = 0; x < this.Lists.length; x += 1) {
+      if (this.Lists[x].description === des) {
+        ans = this.Lists[x];
+        break;
+      }
+    }
+    return ans;
+  }
+
+  changeComplete(arg) {
+    for (let x = 0; x < this.Lists.length; x += 1) {
+      if (this.Lists[x] === arg) {
+        isCompleted(this.Lists[x]);
+      }
+    }
+  }
+
   printing() {
     const ans = [];
     for (let x = 0; x < this.Lists.length; x += 1) {
@@ -53,11 +73,11 @@ class List {
 
 const to_Do_List = new List();
 to_Do_List.addToEnd('Wash the dishes', false, 1);
-to_Do_List.addToEnd('Cook Dinner', true, 3);
-to_Do_List.addToEnd('Finish project', false, 2);
-to_Do_List.addToEnd('project for sisters', true, 4);
-to_Do_List.addToEnd('Finish emails', false, 5);
-to_Do_List.addToEnd('comic run', true, 2);
+to_Do_List.addToEnd('Cook Dinner', false, 3);
+to_Do_List.addToEnd('Finish project', false, 7);
+to_Do_List.addToEnd('project for sisters', false, 4);
+to_Do_List.addToEnd('Finish emails', false, 8);
+to_Do_List.addToEnd('comic run', false, 10);
 to_Do_List.addToEnd('eat lunch', false, 6);
 
 const section = document.querySelector('.top');
@@ -84,13 +104,19 @@ const sort = (arr) => {
   return next;
 };
 
-const addListToPages = () => {
-  const sorted = sort(to_Do_List.Lists);
-  for (let x = 0; x < sorted.length; x += 1) {
+let count = 0;
+const addListToPages = (pages) => {
+  const sorted = sort(pages);
+  pages = sorted;
+  to_Do_List.Lists = sort(to_Do_List.Lists);
+  to_Do_List.Lists = pages;
+  for (let x = 0; x < pages.length; x += 1) {
     const container = document.createElement('div');
     const check = document.createElement('input');
     check.type = 'checkbox';
     check.name = 'complete';
+    check.checked = pages[x].completed;
+    check.setAttribute('class', 'checker');
     const des = document.createElement('p');
     const wrap = document.createElement('span');
 
@@ -105,14 +131,66 @@ const addListToPages = () => {
 
     wrap.setAttribute('class', 'flex');
     container.setAttribute('class', 'listing flex');
-    des.innerHTML = sorted[x].description;
+    des.innerHTML = pages[x].description;
   }
+
+  const button = document.createElement('button');
+  section.append(button);
+  button.setAttribute('class', 'clear');
+  button.setAttribute('type', 'button');
+  button.innerHTML = 'Clear all Completed';
+  count += 1;
 };
 
-addListToPages();
+if (count === 0) addListToPages(to_Do_List.Lists);
 
-const button = document.createElement('button');
-section.append(button);
-button.setAttribute('class', 'clear');
-button.setAttribute('type', 'button');
-button.innerHTML = 'Clear all Completed';
+function populate() {
+  const instances = {
+    figures: [],
+  };
+  instances.figures.push(to_Do_List);
+  localStorage.setItem('instances', JSON.stringify(instances));
+}
+
+const box = document.querySelectorAll('.checker');
+box.forEach((element) => {
+  element.addEventListener('change', (e) => {
+    const parent = e.target.parentNode;
+    const des = parent.querySelector('p');
+    const content = des.innerHTML;
+    const ans = to_Do_List.returnDes(content);
+    if (e.target.checked) {
+      to_Do_List.changeComplete(ans);
+      populate();
+    } else {
+      to_Do_List.changeComplete(ans);
+      populate();
+    }
+  });
+});
+
+function setForm() {
+  const restore = JSON.parse(localStorage.getItem('instances'));
+  addListToPages(restore.figures[0].Lists);
+
+  const box = document.querySelectorAll('.checker');
+  box.forEach((element) => {
+    element.addEventListener('change', (e) => {
+      const parent = e.target.parentNode;
+      const des = parent.querySelector('p');
+      const content = des.innerHTML;
+      const ans = to_Do_List.returnDes(content);
+      if (e.target.checked) {
+        to_Do_List.changeComplete(ans);
+        populate();
+      } else {
+        to_Do_List.changeComplete(ans);
+        populate();
+      }
+    });
+  });
+}
+
+if (localStorage.getItem('instances')) {
+  setForm();
+}
