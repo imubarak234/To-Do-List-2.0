@@ -20,7 +20,7 @@ class List {
   addToEnd(Des, next) {
     const NewAction = new Actions(Des);
     if (next === true) { NewAction.completed = next; }
-    NewAction.index = this.Lists.length;
+    NewAction.index = this.Lists.length + 1;
     this.Lists.push(NewAction);
   }
 
@@ -41,7 +41,7 @@ class List {
   removeAt(index) {
     this.Lists.splice(index, 1);
     for (let x = 0; x < this.Lists.length; x += 1) {
-      this.Lists[x].index = x;
+      this.Lists[x].index = x + 1;
     }
   }
 
