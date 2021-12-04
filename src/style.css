@@ -70,10 +70,42 @@ span {
 }
 
 .listing span {
-  margin-right: 25%;
+  margin-right: 9%;
 }
 
 .clear {
   padding: 3%;
   border: white;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 19%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover { background-color: blue; }
+
+.option {
+  width: 18%;
+  border: white;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0);
+  display: flex;
+  justify-content: end;
+}
+
+.option img {
+  z-index: 10;
+  width: 10%;
 }
