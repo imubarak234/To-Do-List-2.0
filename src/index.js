@@ -145,3 +145,5 @@ function setForm() {
 if (localStorage.getItem('instances')) {
   setForm();
 }
+
+export { addListToPages as default };
