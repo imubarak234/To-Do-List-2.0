@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638974361962" clover="3.2.0">
-  <project timestamp="1638974361962" name="All files">
+<coverage generated="1638975194109" clover="3.2.0">
+  <project timestamp="1638975194109" name="All files">
     <metrics statements="44" coveredstatements="18" conditionals="12" coveredconditionals="4" methods="16" coveredmethods="5" elements="72" coveredelements="27" complexity="0" loc="44" ncloc="44" packages="1" files="2" classes="2"/>
     <file name="complete.js" path="/home/manezeu/Microverse-projects/To-Do-List-2.0/src/complete.js">
       <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -11,22 +11,22 @@
     </file>
     <file name="listClass.js" path="/home/manezeu/Microverse-projects/To-Do-List-2.0/src/listClass.js">
       <metrics statements="40" coveredstatements="17" conditionals="10" coveredconditionals="4" methods="15" coveredmethods="5"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="10" count="4" type="stmt"/>
-      <line num="11" count="4" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="21" count="4" type="stmt"/>
-      <line num="22" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="23" count="4" type="stmt"/>
-      <line num="24" count="4" type="stmt"/>
+      <line num="9" count="5" type="stmt"/>
+      <line num="10" count="5" type="stmt"/>
+      <line num="11" count="5" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="21" count="5" type="stmt"/>
+      <line num="22" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="5" type="stmt"/>
+      <line num="24" count="5" type="stmt"/>
       <line num="28" count="0" type="stmt"/>
       <line num="29" count="0" type="stmt"/>
       <line num="30" count="0" type="stmt"/>
       <line num="34" count="0" type="stmt"/>
       <line num="38" count="0" type="stmt"/>
-      <line num="42" count="1" type="stmt"/>
-      <line num="43" count="1" type="stmt"/>
-      <line num="44" count="3" type="stmt"/>
+      <line num="42" count="2" type="stmt"/>
+      <line num="43" count="2" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
       <line num="49" count="0" type="stmt"/>
       <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="51" count="0" type="stmt"/>
