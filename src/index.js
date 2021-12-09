@@ -11,13 +11,13 @@ import List from './listClass.js';
 
 const to_Do_List = new List();
 
-const section = document.querySelector('.main-list');
+// const section = document.querySelector('.main-list');
 const title = document.querySelector('.head');
 
 const icon2 = new Image();
 icon2.src = Icons2;
 
-title.append(icon2);
+if ((icon2 != null) && (title != null)) title.append(icon2);
 
 function populate() {
   const instances = {
@@ -29,6 +29,7 @@ function populate() {
 
 const addListToPages = (description, next) => {
   to_Do_List.addToEnd(description, next);
+  const section = document.querySelector('.main-list');
 
   const container = document.createElement('div');
   const check = document.createElement('input');
@@ -110,15 +111,17 @@ const addListToPages = (description, next) => {
 };
 
 const clear = document.querySelector('.clear');
-clear.addEventListener('click', (e) => {
-  const allList = document.querySelectorAll('.listing');
-  to_Do_List.clearCompleted();
-  populate();
-  allList.forEach((element) => {
-    const checks = element.querySelector('.checker');
-    if (checks.checked) { element.parentNode.removeChild(element); }
+if (clear != null) {
+  clear.addEventListener('click', (e) => {
+    const allList = document.querySelectorAll('.listing');
+    to_Do_List.clearCompleted();
+    populate();
+    allList.forEach((element) => {
+      const checks = element.querySelector('.checker');
+      if (checks.checked) { element.parentNode.removeChild(element); }
+    });
   });
-});
+}
 
 /** This method adds an eventlistener to input field that checks if
  * The enter keypressed if so a task object is created and added
@@ -126,13 +129,15 @@ clear.addEventListener('click', (e) => {
  */
 
 const addfield = document.getElementById('addlist');
-addfield.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    addListToPages(addfield.value);
-    document.getElementById('addlist').value = '';
-    populate();
-  }
-});
+if (addfield != null) {
+  addfield.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      addListToPages(addfield.value);
+      document.getElementById('addlist').value = '';
+      populate();
+    }
+  });
+}
 
 function setForm() {
   const restore = JSON.parse(localStorage.getItem('instances'));
