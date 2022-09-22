@@ -39,7 +39,10 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "fs": "^0.0.1-security",
     "jsdom": "^19.0.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "path": "^0.12.7"
   }
 }
